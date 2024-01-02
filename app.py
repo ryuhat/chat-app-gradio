@@ -1,20 +1,18 @@
 import gradio as gr
 
 def add_text(history, text):
-    # Logic for processing text input
     response = f"You said: '{text}'. Interesting!"
-    history.append(("User", text))
-    history.append(("Bot", response))
+    history.append((text, response))
     return history
 
 def add_audio(history, audio):
-    # Logic for processing audio input
+    history.append(("User", "[Audio message]"))
     response = "Audio received, but I can't interpret it yet."
     history.append(("Bot", response))
     return history
 
 def add_file(history, file):
-    # Logic for processing file upload
+    history.append(("User", "[File uploaded]"))
     response = "File received. I'll learn to analyze this soon."
     history.append(("Bot", response))
     return history
@@ -49,6 +47,6 @@ with gr.Blocks() as demo:
             btn_t2t = gr.Button("Random description")
 
         dropdown_method = gr.Dropdown(["slow", "fast"], label="Visualization Method", value="fast")
-        dropdown_language = gr.Dropdown(["English", "中文"], label="Speech Language", value="English")
+        dropdown_language = gr.Dropdown(["English", "日本語"], label="Speech Language", value="English")
 
 demo.launch()
