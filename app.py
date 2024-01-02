@@ -42,8 +42,6 @@ with gr.Blocks() as demo:
         with gr.Group():
             gr.Markdown("### Additional Features:")
             btn_instruct = gr.Button("Instructions")
-            btn_t2m = gr.Button("Text-to-Motion")
-            btn_m2t = gr.Button("Motion-to-Text")
             btn_t2t = gr.Button("Random description")
 
         dropdown_method = gr.Dropdown(["slow", "fast"], label="Visualization Method", value="fast")
